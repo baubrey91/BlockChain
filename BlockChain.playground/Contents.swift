@@ -9,15 +9,12 @@ struct Block {
     var blockHashValue: Int {
         get {
             var hashValues:Float = Float(previousBlockHashValue)
-            
             for transaction in transactions {
                 hashValues += Float(transaction.hashValue)
             }
-            
             return String(hashValues).hashValue
         }
     }
-    
     
     init(_ transactions:[String], _ previousBlockHashValue: Int) {
         self.transactions = transactions
